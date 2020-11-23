@@ -16,3 +16,7 @@ output:
 knitr::opts_chunk$set(message=FALSE,warning=FALSE, cache=TRUE)
 ```
 
+# Bike Sales
+
+```{r, fig.width=9, fig.height=9, code = readLines("01_getting_started/sales_analysis_challenge.R", encoding="UTF-8")}
+```
