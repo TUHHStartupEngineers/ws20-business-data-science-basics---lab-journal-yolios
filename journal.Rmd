@@ -20,3 +20,21 @@ knitr::opts_chunk$set(message=FALSE,warning=FALSE, cache=TRUE)
 
 ```{r, fig.width=9, fig.height=9, code = readLines("01_getting_started/sales_analysis_challenge.R", encoding="UTF-8")}
 ```
+
+# Data Acquisition
+
+## Rose Scraping
+
+To prevent the access to the www.rosebikes.de website with every website build,
+the script has been split. The main part acquires the data and saves it to a file.
+```{r, eval = FALSE, code = readLines("02_data_wrangling/rose_scrape.R", encoding="UTF-8")}
+```
+
+The second part reads the file and outputs 10 lines.
+```{r}
+  read_rds("00_data/rose_bikes.rds") %>% head(n=10)
+```
+
+The complete data set contains 171 model / color variants with information about
+the category, model, color, price, wheels, switchgear, chain, brakes and the
+link.
