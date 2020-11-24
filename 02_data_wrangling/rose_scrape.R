@@ -64,25 +64,25 @@ scrape_color <- function(color_path){
     
     features <- tibble(key=feature_keys, value=feature_values)
     
-    wheels <- features[features$key == "Laufräder", "value"] %>%
-      as.character()
+    wheels <- features %>%
+      filter(str_detect(key, "Laufräder")) %>%
+      pull(value) %>%
+      ifelse(length(.) > 0, ., NA)
+
+    switchgear <- features %>%
+      filter(str_detect(key, "Schaltwerk")) %>%
+      pull(value) %>%
+      ifelse(length(.) > 0, ., NA)
     
-    if (wheels == "character(0)") wheels <- ""
+    chain <- features %>%
+      filter(str_detect(key, "Kette")) %>%
+      pull(value) %>%
+      ifelse(length(.) > 0, ., NA)
     
-    switchgear <- features[features$key == "Schaltwerk", "value"] %>%
-      as.character()
-    
-    if (switchgear == "character(0)") switchgear <- ""
-    
-    chain <- features[features$key == "Kette", "value"] %>%
-      as.character()
-    
-    if (chain == "character(0)") chain <- ""
-    
-    brakes <- features[features$key == "Bremsen", "value"] %>%
-      as.character()
-    
-    if (brakes == "character(0)") brakes <- ""
+    brakes <- features %>%
+      filter(str_detect(key, "Bremsen")) %>%
+      pull(value) %>%
+      ifelse(length(.) > 0, ., NA)
     
     tibble(category_1, category_2, model, variant, color, price, wheels,
         switchgear, chain, brakes, link)
