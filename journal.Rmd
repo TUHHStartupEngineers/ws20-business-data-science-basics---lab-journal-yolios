@@ -23,6 +23,15 @@ knitr::opts_chunk$set(message=FALSE,warning=FALSE, cache=TRUE)
 
 # Data Acquisition
 
+## YouTube API
+
+The API call uses the public *YouTube Data API v3* with just an API-key
+(without O-Auth). The 10 most popular videos in the US are fetched and
+interesting information is selected.
+
+```{r, code = readLines("02_data_wrangling/youtube_api.R", encoding="UTF-8")}
+```
+
 ## Rose Scraping
 
 To prevent the access to the www.rosebikes.de website with every website build,
