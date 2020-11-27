@@ -87,3 +87,16 @@ The solution only considering all classes:
 ```{r}
 read_rds("00_data/patents/analyzed/patent_innovation.rds")
 ```
+
+
+# Visualization
+
+## Covid Cumulative Cases
+
+```{r, code = readLines("03_visualization/covid_cases.R", encoding="UTF-8")}
+```
+
+## Covid Mortality Rate
+
+```{r, code = readLines("03_visualization/covid_mortality.R", encoding="UTF-8")}
+```
